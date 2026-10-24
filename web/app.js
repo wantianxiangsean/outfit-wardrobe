@@ -28,6 +28,7 @@
 
   const SERIF = '"Songti SC","STSong","Source Han Serif SC","Noto Serif CJK SC",SimSun,serif';
   const SANS = '"PingFang SC","Microsoft YaHei",system-ui,sans-serif';
+  const STATIC_MODE = document.documentElement.dataset.mode === 'static';
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -69,6 +70,10 @@
   }
 
   async function api(path, options = {}) {
+    if (STATIC_MODE) {
+      if (!window.StaticWardrobe) throw new Error('本地存储模块没有加载');
+      return window.StaticWardrobe.handle(path, options);
+    }
     const init = { ...options };
     if (init.body) init.headers = { 'Content-Type': 'application/json', ...(init.headers || {}) };
     const res = await fetch(path, init);

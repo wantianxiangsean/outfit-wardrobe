@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>衣橱 · 穿搭记录</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="rail">
+      <a class="brand" href="#/wardrobe">
+        <span class="brand-name">衣橱</span>
+        <span class="brand-sub">个人穿搭册</span>
+      </a>
+
+      <nav class="rail-nav" aria-label="主导航">
+        <a class="nav-link" href="#/wardrobe" data-nav="wardrobe">衣橱</a>
+        <a class="nav-link" href="#/outfits" data-nav="outfits">搭配</a>
+      </nav>
+
+      <div class="rail-foot">
+        <button class="btn btn-quiet" id="btn-backup" type="button">导出备份</button>
+        <button class="btn btn-quiet" id="btn-restore" type="button">导入备份</button>
+        <input type="file" id="restore-file" accept="application/json,.json" hidden>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div id="view" class="view"></div>
+    </main>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

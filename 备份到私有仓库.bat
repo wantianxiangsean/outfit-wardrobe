@@ -11,6 +11,6 @@ if errorlevel 1 (
   exit /b 1
 )
 
-python sync_backup.py --repo "..\outfit-wardrobe-data"
+python sync_backup.py
 echo.
 pause
